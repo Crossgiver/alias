@@ -1,0 +1,25 @@
+<div
+  class="menu-trigger"
+  [class.menu-trigger--opened]="isOpened"
+  [class.menu-trigger--disabled]="disabled"
+  appClickOutside
+  [includeEls]="[contentRef]"
+  (clickOutside)="isOpened ? clickOutside() : false"
+  (click)="toggleMenu(true)"
+>
+  <div [class.menu-trigger--no-external-content]="!contentRef.children.length" #contentRef>
+    <ng-content></ng-content>
+  </div>
+  <span
+    *ngIf="!contentRef.children.length && !!triggerInfo"
+    class="menu-trigger__content"
+  >
+    {{ triggerInfo }}
+  </span>
+  <button
+    class="menu-trigger__arrow"
+    [class.menu-trigger__arrow--opened]="isOpened"
+  >
+    >
+  </button>
+</div>

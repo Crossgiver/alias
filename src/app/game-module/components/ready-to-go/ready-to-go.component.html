@@ -1,0 +1,27 @@
+<div class="block">
+  <p class="sub-title">{{ currentTeam.name }} get ready to go</p>
+
+  @if(isScoreShown) {
+    <div class="pill__group">
+      @for(team of teamsInfo(); track team.id) {
+        <div
+          class="pill pill--full-width pill--blue"
+          (click)="goToGames(team)"
+        >
+          <span>{{ team.name }} score</span> <span>{{ team.score }}</span>
+        </div>
+      }
+    </div>
+  }
+
+  <div class="button__wrapper button__wrapper--fixed">
+    <button
+      class="button button--bright-blue button--full-width"
+      (click)="showScore()"
+    >Score</button>
+    <button
+      class="button button--french-violet button--full-width"
+      (click)="start()"
+    >Start</button>
+  </div>
+</div>

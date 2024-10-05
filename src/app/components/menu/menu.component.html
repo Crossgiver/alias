@@ -1,0 +1,83 @@
+<div class="block">
+  <h1 class="title">Create game</h1>
+
+  <app-select
+    id="wordsCount"
+    title="Words count"
+    label="Words count"
+    [selectedOption]="wordsQtySelectedOption"
+    [options]="wordsQtyOptions"
+    (optionSelected)="selectWordsQty($event)"
+  ></app-select>
+  <app-select
+    id="time"
+    title="Time"
+    label="Time"
+    [selectedOption]="timeSelectedOption"
+    [options]="timeOptions"
+    (optionSelected)="selectTime($event)"
+  ></app-select>
+
+  <div class="pill__group">
+    @for(team of teamsList; track team.id; let i = $index) {
+      <span class="pill pill--violet pill--full-width">
+        <span>{{ i + 1 }}. {{ team.name }}</span>
+        <span
+          class="icon icon--warning"
+          (click)="remove(team)"
+        >
+          <i class="material-icons">delete</i>
+        </span>
+      </span>
+    }
+  </div>
+
+  @if (!isCreateTeamOpen) {
+    @if (!teamsList.length) {
+      <div class="button__wrapper">
+        <button
+          class="button button--full-width button--main"
+          (click)="createTeam()"
+        >Create team</button>
+      </div>
+    } @else {
+      <button
+        class="pill pill--circle pill--success"
+        (click)="createTeam()"
+      >
+        <span class="icon icon--delete"><i class="material-icons">add</i></span>
+      </button>
+    }
+  }
+
+  @if(isCreateTeamOpen) {
+    <app-form-input
+      [control]="teamName"
+      [formGroup]="gameForm"
+      [autofocus]="true"
+      id="team-name"
+      name="teamName"
+      placeholder="Team name"
+    ></app-form-input>
+    <div class="button__wrapper">
+      <button
+        class="button button--full-width button--warning"
+        (click)="close()"
+      >Close</button>
+      <button
+        type="submit"
+        class="button button--full-width button--success"
+        [disabled]="teamName.invalid"
+        (click)="create()"
+      >Create</button>
+    </div>
+  }
+
+  <div class="button__wrapper button__wrapper--fixed">
+    <button
+      class="button button--success button--full-width"
+      [disabled]="teamsList.length < 2"
+      (click)="start()"
+    >Start game</button>
+  </div>
+</div>

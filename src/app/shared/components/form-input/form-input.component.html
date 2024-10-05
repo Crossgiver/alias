@@ -1,0 +1,37 @@
+<form
+  [formGroup]="formGroup"
+  [ngClass]="className"
+  class="form-input"
+  [class.form-input--with-label]="label"
+>
+  <label
+    *ngIf="label"
+    [for]="id"
+    class="form-input__label"
+    [innerHTML]="label"
+  ></label>
+  <div
+    [class.form-input__wrapper--focused]="focused"
+    class="form-input__wrapper"
+  >
+    <input
+      #inputElement
+      (focusin)="focused = true"
+      (focusout)="focused = false"
+      [appAutofocus]="autofocus"
+      [formControlName]="name"
+      [id]="id"
+      [placeholder]="placeholder"
+      [type]="type"
+      [autocomplete]="autocomplete"
+      class="form-input__input"
+    />
+  </div>
+  <app-input-error
+    [control]="control"
+    [status]="(control.statusChanges | async) || ''"
+    [value]="(control.valueChanges | async) || ''"
+    [touched]="control.touched"
+    [showFirstError]="true"
+  ></app-input-error>
+</form>

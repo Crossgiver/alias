@@ -1,0 +1,22 @@
+<div
+  class="menu-options"
+  [ngClass]="className"
+  [ngStyle]="{ 'top.px': top, 'left.px': left }"
+>
+  <div class="menu-options__list">
+    <div
+      *ngFor="let option of options"
+      class="menu-options__option"
+      [class.menu-options__option--selected]="option.selected"
+      (click)="!option?.actionFn ? select(option) : false"
+    >
+      <span>{{ option.title }}</span>
+      <span
+        *ngIf="option.template"
+        [innerHTML]="option.template"
+        class="menu-options__option-action"
+        (click)="select(option)"
+      ></span>
+    </div>
+  </div>
+</div>

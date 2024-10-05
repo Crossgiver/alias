@@ -1,0 +1,41 @@
+<div class="block">
+  <p class="title">{{ team.name }} statistics</p>
+
+  @if (!steps().length) {
+    <p class="sub-title">No statistics yet!</p>
+  }
+
+  @for(step of steps(); track step.name) {
+    <p class="sub-title">{{ step.name }}</p>
+    <div class="pill__group">
+      @for (answer of step.step; track answer.id) {
+        <span
+          class="pill pill--full-width"
+          [class.pill--not-editable]="!isEditMode"
+          [class]="answer.isGuessed ? 'pill--success' : 'pill--orange-red'"
+          (click)="toggleAnswer(answer, step.name)"
+        >
+          {{ answer.value }}
+          @if (answer.isGuessed) {
+            <span class="icon icon--success"><i class="material-icons">check</i></span>
+          } @else {
+            <span class="icon icon--warning"><i class="material-icons">dangerous</i></span>
+          }
+        </span>
+      }
+    </div>
+  }
+
+  <div class="button__wrapper button__wrapper--fixed">
+    <button
+      class="button button--full-width button--bright-blue"
+      (click)="edit()"
+    >
+      {{ !isEditMode ? 'Edit' : 'Stop editing' }}
+    </button>
+    <button
+      class="button button--full-width button--french-violet"
+      (click)="goBack()"
+    >Go back</button>
+  </div>
+</div>

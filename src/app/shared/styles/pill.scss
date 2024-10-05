@@ -1,0 +1,86 @@
+.pill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  border: 0;
+  padding: 0.35rem 0.75rem;
+  --pill-accent: var(--bright-blue);
+  background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
+  color: var(--pill-accent);
+  border-radius: 2.75rem;
+  transition: background 0.3s ease;
+  font-family: var(--inter-font);
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.4rem;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  &--full-width {
+    width: 100%;
+  }
+
+  &--center {
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+
+  &--circle {
+    justify-content: center;
+    width: 40px;
+    padding: 0.35rem;
+  }
+
+  &--not-editable {
+    pointer-events: none;
+  }
+
+  &__group {
+    display: flex;
+    width: 100%;
+    max-width: 320px;
+    flex-direction: column;
+    align-items: start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 20px;
+
+    &--center {
+      align-items: center;
+    }
+  }
+
+  &:hover {
+    background: color-mix(in srgb, var(--pill-accent) 30%, transparent);
+  }
+
+  &--blue {
+    --pill-accent: var(--bright-blue);
+  }
+
+  &--violet {
+    --pill-accent: var(--french-violet);
+  }
+
+  &--red {
+    --pill-accent: var(--hot-red);
+  }
+
+  &--orange-red {
+    --pill-accent: var(--orange-red);
+  }
+
+  &--success {
+    --pill-accent: var(--success-green);
+  }
+}

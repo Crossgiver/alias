@@ -1,0 +1,21 @@
+.icon {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+
+  & > i {
+    font-size: 20px;
+  }
+
+  &--warning {
+    color: var(--hot-red);
+  }
+
+  &--success {
+    color: var(--success-green);
+  }
+
+  &--lemon-guice {
+    color: var(--lemon-guice);
+  }
+}

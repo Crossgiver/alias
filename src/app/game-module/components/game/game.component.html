@@ -1,0 +1,35 @@
+<div class="block">
+  <div class="pill__group pill__group--center">
+    <div class="pill pill--blue pill--circle" [class.pill--orange-red]="timer() < 6">
+      {{ timer() }}
+    </div>
+  </div>
+
+  <div class="pill__group">
+    @for(word of words(); track word.id) {
+    <button
+      class="pill pill--violet pill--full-width"
+      [class.pill--success]="word.isGuessed"
+      [disabled]="gamePaused"
+      (click)="guessWord(word)"
+    >
+      {{ word.value }}
+      @if (word.isGuessed) {
+        <span class="icon icon--success"><i class="material-icons">check</i></span>
+      }
+    </button>
+    }
+  </div>
+
+  <div class="pill__group pill__group--center">
+    <button class="pill pill--circle pill--blue" (click)="togglePause()">
+      @if(!gamePaused) {
+        <span class="icon"><i class="material-icons">pause</i></span>
+      } @else {
+        <span class="icon"><i class="material-icons">play_arrow</i></span>
+      }
+    </button>
+  </div>
+</div>
+
+

@@ -1,0 +1,8 @@
+<span *ngIf="label" class="chip-input__label">{{ label }}</span>
+<app-menu-base
+  [triggerInfo]="selectedOption?.title || title"
+  [options]="modifiedOptions"
+  [disabled]="disabled"
+  (selected)="selectOption($event)"
+  (selectedList)="selectOptions($event)"
+></app-menu-base>

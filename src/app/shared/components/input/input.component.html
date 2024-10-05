@@ -1,0 +1,20 @@
+<div class="form-input" [ngClass]="className">
+  <label *ngIf="title" [for]="id" class="form-input__label">{{ title }}</label>
+  <div
+    class="form-input__wrapper"
+    [class.form-input__wrapper--focused]="focused"
+  >
+    <input
+      #inputElement
+      class="form-input__input"
+      [id]="id"
+      [formControl]="control"
+      [type]="type"
+      [placeholder]="title"
+      [autocomplete]="autocomplete"
+      [appAutofocus]="autofocus"
+      (focusin)="focused = true"
+      (focusout)="focused = false"
+    />
+  </div>
+</div>

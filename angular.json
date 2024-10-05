@@ -68,6 +68,9 @@
             },
             "development": {
               "buildTarget": "alias:build:development"
+            },
+            "options": {
+              "port": 4201
             }
           },
           "defaultConfiguration": "development"
@@ -98,5 +101,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

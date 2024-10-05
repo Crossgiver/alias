@@ -1,0 +1,29 @@
+<div class="block">
+  @if(winnerTeam) {
+    <p class="title">Winner is {{ winnerTeam.name }}!</p>
+  }
+
+  <div class="pill__group">
+    @for(team of teamsList; track team.id; let i = $index) {
+      <div class="pill pill--full-width pill--center pill--violet" [class.pill--success]="i === 0">
+        @if(i === 0) {
+          <span class="icon icon--lemon-guice"><i class="material-icons">emoji_events</i></span>
+        } @else {
+          <span class="icon"></span>
+        }
+        {{ team.name }} score is {{ team.score }}
+      </div>
+    }
+  </div>
+
+  <div class="button__wrapper button__wrapper--fixed">
+    <button
+      class="button button--full-width button--main"
+      (click)="startNewGame()"
+    >New game</button>
+    <button
+      class="button button--full-width button--success"
+      (click)="continue()"
+    >Continue</button>
+  </div>
+</div>
