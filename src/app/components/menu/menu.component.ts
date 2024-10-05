@@ -61,7 +61,6 @@ export class MenuComponent implements OnInit {
   wordsQtySelectedOption!: IMenuOption;
   timeSelectedOption!: IMenuOption;
   wordsQtyOptions: IMenuOption[] = [
-    { title: '5', value: '5' },
     { title: '10', value: '10' },
     { title: '15', value: '15' },
     { title: '20', value: '20' },
@@ -69,7 +68,6 @@ export class MenuComponent implements OnInit {
     { title: '30', value: '30' },
   ];
   timeOptions: IMenuOption[] = [
-    { title: '6', value: '6' },
     { title: '30', value: '30' },
     { title: '35', value: '35' },
     { title: '40', value: '40' },
