@@ -467,7 +467,7 @@ export class WordService {
     'Sick leave',
     'Hardcode',
     'Z-index',
-    'Pseudo-element'
+    'Pseudo-element',
     'User Interface',
     'Media query',
     'Flexbox',
