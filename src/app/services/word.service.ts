@@ -498,6 +498,11 @@ export class WordService {
     'Rework',
     'Shadow DOM',
     'Virtual DOM',
+    'Polyfill',
+    'Megabyte',
+    'Gigabyte',
+    'Byte',
+    'Blockchain',
   ];
 
   generateWords(): void {
